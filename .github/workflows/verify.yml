@@ -26,10 +26,6 @@ jobs:
         uses: actions/setup-node@v2.5.0
         with:
           node-version: "14.18.1"
-      - name: 设置npm镜像
-        run: npm config set registry https://registry.npm.taobao.org
-      - name: 验证npm镜像
-        run: npm config get registry
       - name: 测试依赖的安装
         run: npm install
       - name: 测试程序的打包
