@@ -28,13 +28,16 @@ jobs:
         uses: actions/setup-node@v2.5.0
         with:
           node-version: "14.X"
-      - name: 安装依赖
+      - name: install dep
         run: npm install
-      - name: 开始打包
+      - name: build app
         run: npm run build
+      # Runs a single command using the runners shell
+      - name: deploy start
+        run: 开始发布
 
       # Runs a set of commands using the runners shell
-      - name: 开始发布
+      - name: Run a multi-line script
         uses: peaceiris/actions-gh-pages@v2.5.1
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}

@@ -28,9 +28,9 @@ jobs:
         uses: actions/setup-node@v2.5.0
         with:
           node-version: "14.X"
-      - name: 安装依赖
+      - name: install dep
         run: npm install
-      - name: 开始打包
+      - name: build app
         run: npm run build
 
       # Runs a set of commands using the runners shell
