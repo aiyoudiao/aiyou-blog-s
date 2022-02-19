@@ -1,6 +1,6 @@
 <script>
 import 'APlayer/dist/APlayer.min.css'
-import APlayer from 'APlayer/dist/APlayer.min.js'
+import { APlayer } from 'APlayer/dist/APlayer.min';
 
 export default {
   name: 'VuepressPluginAPlayer',
