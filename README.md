@@ -1,2 +1,2 @@
-# aiyou-blog-s
+# aiyou-blog's
 知识闭环，占领心智，正向反馈，远离负量。

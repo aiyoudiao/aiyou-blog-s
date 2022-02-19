@@ -1,0 +1,46 @@
+{
+  "name": "aiyou-blog-s",
+  "version": "1.0.0",
+  "description": "A Vuepress blog project",
+  "main": "docs/.vuepress/config.js",
+  "scripts": {
+    "bootstrap": "npm install",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "zip": "rimraf blog.zip && zip -r blog.zip blog/ && rimraf blog"
+  },
+  "keywords": [
+    "blog",
+    "vuepress"
+  ],
+  "author": "aiyoudiao <newdiao@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@better-scroll/core": "^2.2.1",
+    "@better-scroll/slide": "^2.2.1",
+    "@vue/runtime-dom": "^3.0.9",
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-nprogress": "^1.8.2",
+    "@vuepress/plugin-search": "^1.8.2",
+    "aplayer": "^1.10.1",
+    "chalk": "^4.1.0",
+    "docsearch.js": "^2.6.3",
+    "good-storage": "^1.1.1",
+    "js-yaml": "^3.14.1",
+    "json2yaml": "^1.1.0",
+    "lodash": "^4.17.21",
+    "mobile-device-detect": "^0.4.3",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "vue-picture-swipe": "^2.1.0",
+    "vue-tabs-component": "^1.5.0",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-comment": "^0.7.3",
+    "vuepress-plugin-container": "^2.1.5",
+    "vuepress-plugin-one-click-copy": "^1.0.3",
+    "vuepress-plugin-smooth-scroll": "^0.0.10",
+    "vuepress-plugin-tabs": "^0.3.0",
+    "vuepress-plugin-thirdparty-search": "^1.0.2",
+    "vuepress-theme-vdoing": "^1.9.4"
+  }
+}
