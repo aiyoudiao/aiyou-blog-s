@@ -41,7 +41,8 @@ jobs:
           EXTERNAL_REPOSITORY: aiyoudiao/aiyoudiao.github.io
           PUBLISH_BRANCH: master
           PUBLISH_DIR: ./blog
-    steps:
+      
+      # 同步代码到giteee上
       - name: 同步到gitee
         uses: wearerequired/git-mirror-action@master
         env:
