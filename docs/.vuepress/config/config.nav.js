@@ -28,13 +28,13 @@ module.exports = [
       { text: 'Other', link: '/pages/02344550255/' },
     ],
   },
-  { 
+  {
     text: '技能',
     items: [
       { text: 'PMP', link: '/pages/82158160216/' },
       { text: 'Office', link: '/pages/41858590259/' },
-      { text: '面试', link: '/pages/02359360236/' }, 
-      { text: 'Bash', link: '/pages/73600130213/' }, 
+      { text: '面试', link: '/pages/02359360236/' },
+      { text: 'Bash', link: '/pages/73600130213/' },
     ],
   },
   { text: '历程', link: '/pages/83857320232/' },
@@ -46,5 +46,15 @@ module.exports = [
       { text: '标签', link: '/tags/' },
     ],
   },
-  { text: '其它', link: '/pages/02657130213/' },
+  {
+    text: '其它', 
+    items: [
+      {
+        text: '简介', link: '/pages/02657130213/'
+      },
+      {
+        text: 'md editor', link: 'https://aiyoudiao.gitee.io/md/'
+      },
+    ]
+  },
 ]
