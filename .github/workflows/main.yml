@@ -41,3 +41,14 @@ jobs:
           EXTERNAL_REPOSITORY: aiyoudiao/aiyoudiao.github.io
           PUBLISH_BRANCH: master
           PUBLISH_DIR: ./blog
+    steps:
+      - name: 同步到gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+          # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        with:
+          # 注意替换为你的 GitHub 源仓库地址
+          source-repo: git@github.com:aiyoudiao/aiyoudiao.github.io.git
+          # 注意替换为你的 Gitee 目标仓库地址
+          destination-repo: git@gitee.com:aiyoudiao/aiyoudiao.gitee.io.git
