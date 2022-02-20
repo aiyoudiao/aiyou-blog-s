@@ -41,8 +41,8 @@ module.exports = [
     {
       choosen: 'gitalk',
       options: {
-        clientID: '18f75ccbd29e80c81f52',
-        clientSecret: '0090269ec473ec6f0041e85bec31ca6356aaf917',
+        clientID: '171e5c5b54d77ae16f2a',
+        clientSecret: '968f87ef701bd557afc7526eb1b12f8428484f61',
         repo: 'aiyoudiao.github.io',
         owner: 'aiyoudiao',
         admin: ['aiyoudiao'],
