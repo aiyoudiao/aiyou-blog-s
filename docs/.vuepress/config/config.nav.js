@@ -55,6 +55,9 @@ module.exports = [
       {
         text: 'md editor', link: 'https://aiyoudiao.gitee.io/md/'
       },
+      {
+        text: 'hu generator', link: 'https://aiyoudiao.gitee.io/hu/'
+      },
     ]
   },
 ]
