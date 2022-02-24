@@ -33,8 +33,7 @@ module.exports = {
     // 页脚信息
     createYear: 2017, // 博客创建年份
     copyrightInfo: 'aiyoudiao 码二',
-    // 这个地方的备案，晚点改
-    // icp: '闽ICP备20001770号-1',
-    // icpLink: 'https://beian.miit.gov.cn/#/Integrated/index',
+    icp: '鄂ICP备2022002654号-1',
+    icpLink: 'https://beian.miit.gov.cn/#/Integrated/index',
   },
 }
