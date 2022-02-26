@@ -23,7 +23,7 @@ module.exports = [
     items: [
       { text: 'LeetCode', link: '/pages/70741550255/' },
       { text: '排序算法', link: '/pages/60643190219/' },
-      { text: '数据结构', link: '/pages/41148120212/' },
+      { text: '数据结构', link: '/pages/90132170217/' },
       { text: '设计模式', link: '/pages/50546120212/' },
       { text: 'Other', link: '/pages/02344550255/' },
     ],
