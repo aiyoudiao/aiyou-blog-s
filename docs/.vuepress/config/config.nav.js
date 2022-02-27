@@ -59,7 +59,7 @@ module.exports = [
         text: 'hu generator', link: 'https://aiyoudiao.gitee.io/hu/'
       },
       {
-        text: 'my live editor', link: 'http://hao6.website:999/'
+        text: 'my live editor', link: 'http://www.hao6.website:999/'
       },
     ]
   },
