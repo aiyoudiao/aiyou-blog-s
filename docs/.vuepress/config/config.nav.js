@@ -42,6 +42,7 @@ module.exports = [
     items: [
       { text: '流年', link: '/pages/83857320232/' },
       { text: '片段', link: '/pages/93419130213/' },
+      { text: '读书', link: '/pages/99744220322/' },
     ],
   },
   {
