@@ -37,7 +37,13 @@ module.exports = [
       { text: 'Bash', link: '/pages/73600130213/' },
     ],
   },
-  { text: '历程', link: '/pages/83857320232/' },
+  { 
+    text: '历程', 
+    items: [
+      { text: '流年', link: '/pages/83857320232/' },
+      { text: '片段', link: '/pages/93419130213/' },
+    ],
+  },
   {
     text: '首页',
     items: [
