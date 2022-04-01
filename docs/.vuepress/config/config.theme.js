@@ -14,7 +14,7 @@ module.exports = {
   //   'https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/images/anime/fate/1049978.png',
   // ],
   // bodyBgImgOpacity: 1,
-  lastUpdated: 'Last Updated',
+  lastUpdated: '上次更新时间',
   titleBadge: false,
   // titleBadgeIcons: ['https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/images/icon/blog.ico'],
   contentBgStyle: 1, //      1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状

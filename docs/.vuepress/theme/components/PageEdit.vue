@@ -39,7 +39,7 @@ export default {
     },
 
     lastUpdated() {
-      return this.$page.lastUpdated
+      return this.formatTime(this.$page.lastUpdated)
     },
 
     lastUpdatedText() {
@@ -93,6 +93,19 @@ export default {
         path
       )
     },
+    // NOTE: 2022年4月1号添加的更新日期格式化。
+    formatTime (timeString,template) {
+      // 首先获取时间字符串中的年月日等信息
+      let timeAry = String(new Date(timeString).toLocaleString()).match(/\d+/g)
+      template = template || "{0}年{1}月{2}日 {3}时{4}分{5}秒"
+      template = template.replace(/\{(\d+)\}/g, (content, $1) => {
+        let time = timeAry[$1] || "00"
+        time.length < 2 ? time = "0" + time : null
+        return time
+      })
+    
+      return template
+    }
   },
 }
 </script>
