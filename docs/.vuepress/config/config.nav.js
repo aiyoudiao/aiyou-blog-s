@@ -60,14 +60,8 @@ module.exports = [
         text: '简介', link: '/pages/02657130213/'
       },
       {
-        text: 'md editor', link: 'https://aiyoudiao.gitee.io/md/'
-      },
-      {
-        text: 'hu generator', link: 'https://aiyoudiao.gitee.io/hu/'
-      },
-      {
-        text: 'my live editor', link: 'http://www.hao6.website:999/'
-      },
+        text: '收藏', link: '/pages/5390102042/'
+      }
     ]
   },
 ]
