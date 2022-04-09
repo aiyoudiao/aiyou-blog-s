@@ -16,6 +16,7 @@ module.exports = [
     text: '笔记',
     items: [
       { text: 'JavaScript', link: '/pages/6840207027/' },
+      { text: 'JavaScript', link: '/pages/84633490449/' },
     ],
   },
   {
