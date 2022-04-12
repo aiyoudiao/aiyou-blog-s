@@ -16,6 +16,9 @@ module.exports = [
     text: '笔记',
     items: [
       { text: 'JavaScript', link: '/pages/84633490449/' },
+      { text: 'Vue', link: '/pages/2331001041/' },
+      { text: 'React', link: '/pages/18114480448/' },
+      { text: '低代码', link: '/pages/25236260426/' },
     ],
   },
   {
