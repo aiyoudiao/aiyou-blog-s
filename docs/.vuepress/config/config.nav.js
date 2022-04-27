@@ -64,6 +64,9 @@ module.exports = [
       },
       {
         text: '收藏', link: '/pages/5390102042/'
+      },
+      {
+        text: '有趣', link: '/pages/32309510451/'
       }
     ]
   },
