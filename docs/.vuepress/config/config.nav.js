@@ -19,6 +19,7 @@ module.exports = [
       { text: 'Vue', link: '/pages/2331001041/' },
       { text: 'React', link: '/pages/18114480448/' },
       { text: '低代码', link: '/pages/25236260426/' },
+      { text: '线性系统', link: '/pages/35345230523/' },
     ],
   },
   {
