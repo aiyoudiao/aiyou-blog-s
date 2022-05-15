@@ -68,7 +68,10 @@ module.exports = [
       },
       {
         text: '有趣', link: '/pages/32309510451/'
-      }
+      },
+      {
+        text: '文档', link: '/pages/23313210521/'
+      },
     ]
   },
 ]
