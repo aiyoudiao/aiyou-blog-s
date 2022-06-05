@@ -24,3 +24,7 @@ yarn.lock
 .history/
 hide-code/
 hide-images/
+
+# 思维导图文件
+**/**/*.xmind
+**/**/mind
