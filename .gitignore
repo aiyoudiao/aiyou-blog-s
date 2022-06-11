@@ -28,3 +28,6 @@ hide-images/
 # 思维导图文件
 **/**/*.xmind
 **/**/mind
+
+# auto.js资源文件
+**/**/__autojs_source
