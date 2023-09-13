@@ -27,7 +27,7 @@ jobs:
       - name: install Node.js
         uses: actions/setup-node@v2.5.0
         with:
-          node-version: "16.16.1"
+          node-version: "16.16.0"
       - name: 安装依赖
         run: npm install
       - name: 开始打包
