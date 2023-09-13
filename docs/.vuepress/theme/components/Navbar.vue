@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import AlgoliaSearchBox from '@AlgoliaSearchBox'
+import AlgoliaSearchBox from './AlgoliaSearchBox'
 import SearchBox from '@SearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
@@ -43,7 +43,9 @@ function css(el, property) {
 
 export default {
   name: 'NavBar',
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, SkySwitch },
+  components: { SidebarButton, NavLinks, SearchBox, 
+  AlgoliaSearchBox, 
+  SkySwitch },
   data() {
     return {
       linksWrapMaxWidth: null,

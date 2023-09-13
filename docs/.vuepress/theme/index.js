@@ -1,160 +1,177 @@
-const path = require('path')
-const setFrontmatter = require('./node_utils/setFrontmatter')
-const getSidebarData = require('./node_utils/getSidebarData')
-const { createPage, deletePage } = require('./node_utils/handlePage')
-const chalk = require('chalk') // 命令行打印美化
-const yaml = require('js-yaml') // yaml转js
-const { log } = console
+const path = require("path");
+const setFrontmatter = require("./node_utils/setFrontmatter");
+const getSidebarData = require("./node_utils/getSidebarData");
+const { createPage, deletePage } = require("./node_utils/handlePage");
+const chalk = require("chalk"); // 命令行打印美化
+const yaml = require("js-yaml"); // yaml转js
+const { log } = console;
 
 // md容器名
-const CARD_LIST = 'cardList'
-const CARD_IMG_LIST = 'cardImgList'
+const CARD_LIST = "cardList";
+const CARD_IMG_LIST = "cardImgList";
 
 // Theme API.
 module.exports = (options, ctx) => {
-  const { sourceDir, themeConfig, siteConfig } = ctx
+  const { sourceDir, themeConfig, siteConfig } = ctx;
 
   // 自动设置front matter
-  setFrontmatter(sourceDir, themeConfig)
+  setFrontmatter(sourceDir, themeConfig);
 
   // 自动生成结构化侧边栏
-  const sidebar = themeConfig.sidebar
-  if (sidebar === 'structuring' || (sidebar && sidebar.mode === 'structuring')) {
-    const collapsable = themeConfig.sidebar.collapsable === false ? false : true
-    const sidebarData = getSidebarData(sourceDir, collapsable)
+  const sidebar = themeConfig.sidebar;
+  if (
+    sidebar === "structuring" ||
+    (sidebar && sidebar.mode === "structuring")
+  ) {
+    const collapsable =
+      themeConfig.sidebar.collapsable === false ? false : true;
+    const sidebarData = getSidebarData(sourceDir, collapsable);
     if (sidebarData) {
-      themeConfig.sidebar = sidebarData
-      log(chalk.blue('tip ') + chalk.green('add sidebar data. 侧边栏数据成功生成。'))
+      themeConfig.sidebar = sidebarData;
+      log(
+        chalk.blue("tip ") +
+          chalk.green("add sidebar data. 侧边栏数据成功生成。")
+      );
     } else {
-      themeConfig.sidebar = 'auto'
-      log(chalk.yellow('warning: fail to add sidebar data, switch to "auto". 未能添加侧边栏数据，将切换为“auto”。'))
+      themeConfig.sidebar = "auto";
+      log(
+        chalk.yellow(
+          'warning: fail to add sidebar data, switch to "auto". 未能添加侧边栏数据，将切换为“auto”。'
+        )
+      );
     }
   }
 
   // 分类页
   if (themeConfig.category !== false) {
-    createPage(sourceDir, 'categoriesPage')
+    createPage(sourceDir, "categoriesPage");
   } else {
-    deletePage(sourceDir, 'categoriesPage')
+    deletePage(sourceDir, "categoriesPage");
   }
 
   // 标签页
   if (themeConfig.tag !== false) {
-    createPage(sourceDir, 'tagsPage')
+    createPage(sourceDir, "tagsPage");
   } else {
-    deletePage(sourceDir, 'tagsPage')
+    deletePage(sourceDir, "tagsPage");
   }
 
   // 归档页
   if (themeConfig.archive !== false) {
-    createPage(sourceDir, 'archivesPage')
+    createPage(sourceDir, "archivesPage");
   } else {
-    deletePage(sourceDir, 'archivesPage')
+    deletePage(sourceDir, "archivesPage");
   }
 
   // resolve algolia
   const isAlgoliaSearch =
     themeConfig.algolia ||
-    Object.keys((siteConfig.locales && themeConfig.locales) || {}).some(base => themeConfig.locales[base].algolia)
+    Object.keys((siteConfig.locales && themeConfig.locales) || {}).some(
+      (base) => themeConfig.locales[base].algolia
+    );
 
-  const enableSmoothScroll = themeConfig.smoothScroll === true
+  const enableSmoothScroll = themeConfig.smoothScroll === true;
 
   return {
     alias() {
       return {
-        '@AlgoliaSearchBox': isAlgoliaSearch
-          ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
-          : path.resolve(__dirname, 'noopModule.js'),
-      }
+        "@AlgoliaSearchBox": isAlgoliaSearch
+          ? path.resolve(__dirname, "./components/AlgoliaSearchBox.vue")
+          : path.resolve(__dirname, "./noopModule.js"),
+      };
     },
 
     plugins: [
-      ['@vuepress/active-header-links', options.activeHeaderLinks],
-      '@vuepress/search',
-      '@vuepress/plugin-nprogress',
-      ['smooth-scroll', enableSmoothScroll],
+      ["@vuepress/active-header-links", options.activeHeaderLinks],
+      "@vuepress/search",
+      "@vuepress/plugin-nprogress",
+      ["smooth-scroll", enableSmoothScroll],
 
       [
-        'container',
+        "container",
         {
-          type: 'note',
+          type: "note",
           defaultTitle: {
-            '/': '笔记',
-            '/en/': 'NOTE',
+            "/": "笔记",
+            "/en/": "NOTE",
           },
         },
       ],
       [
-        'container',
+        "container",
         {
-          type: 'tip',
+          type: "tip",
           defaultTitle: {
-            '/': '提示',
-            '/en/': 'TIP',
+            "/": "提示",
+            "/en/": "TIP",
           },
         },
       ],
       [
-        'container',
+        "container",
         {
-          type: 'warning',
+          type: "warning",
           defaultTitle: {
-            '/': '注意',
-            '/en/': 'WARNING',
+            "/": "注意",
+            "/en/": "WARNING",
           },
         },
       ],
       [
-        'container',
+        "container",
         {
-          type: 'danger',
+          type: "danger",
           defaultTitle: {
-            '/': '警告',
-            '/en/': 'WARNING',
+            "/": "警告",
+            "/en/": "WARNING",
           },
         },
       ],
       [
-        'container',
+        "container",
         {
-          type: 'right',
-          defaultTitle: '',
+          type: "right",
+          defaultTitle: "",
         },
       ],
       [
-        'container',
+        "container",
         {
-          type: 'theorem',
-          before: info => `<div class="custom-block theorem"><p class="title">${info}</p>`,
-          after: '</div>',
+          type: "theorem",
+          before: (info) =>
+            `<div class="custom-block theorem"><p class="title">${info}</p>`,
+          after: "</div>",
         },
       ],
       [
-        'container',
+        "container",
         {
-          type: 'details',
-          before: info => `<details class="custom-block details">${info ? `<summary>${info}</summary>` : ''}\n`,
-          after: () => '</details>\n',
+          type: "details",
+          before: (info) =>
+            `<details class="custom-block details">${
+              info ? `<summary>${info}</summary>` : ""
+            }\n`,
+          after: () => "</details>\n",
           defaultTitle: {
-            '/': '点击查看',
-            '/en/': 'DETAILS',
+            "/": "点击查看",
+            "/en/": "DETAILS",
           },
         },
       ],
 
       // 内容居中容器
       [
-        'container',
+        "container",
         {
-          type: 'center',
-          before: info => `<div class="center-container">`,
-          after: () => '</div>',
+          type: "center",
+          before: (info) => `<div class="center-container">`,
+          after: () => "</div>",
         },
       ],
 
       // 卡片列表
       [
-        'container',
+        "container",
         {
           type: CARD_LIST,
           render: (tokens, idx) => {
@@ -164,135 +181,141 @@ module.exports = (options, ctx) => {
             // } else { // 结束的 ':::' 标记
             // }
             // 注意：修改这里面的代码后需要在md文件保存一下才会重新执行渲染
-            return renderCardList(tokens, idx, CARD_LIST)
+            return renderCardList(tokens, idx, CARD_LIST);
           },
         },
       ],
 
       // 图文卡片列表
       [
-        'container',
+        "container",
         {
           type: CARD_IMG_LIST,
           render: (tokens, idx) => {
-            return renderCardList(tokens, idx, CARD_IMG_LIST)
+            return renderCardList(tokens, idx, CARD_IMG_LIST);
           },
         },
       ],
     ],
-  }
-}
+  };
+};
 
 // 渲染md容器的卡片列表
 function renderCardList(tokens, idx, type) {
   const END_TYPE = `container_${type}_close`,
     _tokens$idx = tokens[idx],
     nesting = _tokens$idx.nesting,
-    info = _tokens$idx.info
+    info = _tokens$idx.info;
 
   if (nesting === 1) {
     // 渲染开头的 ':::' 标记
-    let yamlStr = ''
+    let yamlStr = "";
 
     for (let i = idx; i < tokens.length; i++) {
       let _tokens$i = tokens[i],
         type = _tokens$i.type,
         content = _tokens$i.content,
-        _info = _tokens$i.info
-      if (type === END_TYPE) break // 遇到结束的 ':::' 时
-      if (!content) continue
-      if (type === 'fence' && _info === 'yaml') {
+        _info = _tokens$i.info;
+      if (type === END_TYPE) break; // 遇到结束的 ':::' 时
+      if (!content) continue;
+      if (type === "fence" && _info === "yaml") {
         // 是代码块类型，并且是yaml代码
-        yamlStr = content
+        yamlStr = content;
       }
     }
 
     if (yamlStr) {
       // 正确解析出yaml字符串后
-      const dataObj = yaml.safeLoad(yamlStr) // 将yaml字符串解析成js对象
-      let dataList = []
+      const dataObj = yaml.safeLoad(yamlStr); // 将yaml字符串解析成js对象
+      let dataList = [];
 
       if (dataObj) {
         // 正确解析出数据对象
-        dataList = Array.isArray(dataObj) ? dataObj : dataObj.list
+        dataList = Array.isArray(dataObj) ? dataObj : dataObj.list;
       }
 
       if (dataList && dataList.length) {
         // 有列表数据
 
         // 每行显示几个
-        let row = Number(info.split(' ').pop())
+        let row = Number(info.split(" ").pop());
         if (!row || row > 4 || row < 1) {
-          row = 3 // 默认 3
+          row = 3; // 默认 3
         }
 
-        let listDOM = ''
+        let listDOM = "";
         if (type === CARD_LIST) {
           // 普通卡片列表
-          listDOM = getCardListDOM(dataList, row)
+          listDOM = getCardListDOM(dataList, row);
         } else if (type === CARD_IMG_LIST) {
           // 卡片图片列表
-          listDOM = getCardImgListDOM(dataList, row)
+          listDOM = getCardImgListDOM(dataList, row);
         }
 
-        return `<div class="${type}Container"><div class="card-list">${listDOM}</div>`
+        return `<div class="${type}Container"><div class="card-list">${listDOM}</div>`;
       }
     }
   } else {
     // 渲染':::' 结尾
-    return '</div>'
+    return "</div>";
   }
 }
 
 // 将数据解析成DOM结构 - 普通卡片列表
 function getCardListDOM(dataList, row) {
-  let listDOM = ''
-  dataList.forEach(item => {
+  let listDOM = "";
+  dataList.forEach((item) => {
     listDOM += `
-      <${item.link ? 'a href="' + item.link + '" target="_blank"' : 'span'} class="card-item ${row ? 'row-' + row : ''}"
+      <${
+        item.link ? 'a href="' + item.link + '" target="_blank"' : "span"
+      } class="card-item ${row ? "row-" + row : ""}"
          style="${
            item.bgColor
-             ? 'background-color:' + item.bgColor + ';--randomColor:' + item.bgColor + ';'
-             : '--randomColor: var(--bodyBg);'
-         }${item.textColor ? 'color:' + item.textColor + ';' : ''}"
+             ? "background-color:" +
+               item.bgColor +
+               ";--randomColor:" +
+               item.bgColor +
+               ";"
+             : "--randomColor: var(--bodyBg);"
+         }${item.textColor ? "color:" + item.textColor + ";" : ""}"
       >
-        ${item.avatar ? '<img src="' + item.avatar + '" class="no-zoom">' : ''}
+        ${item.avatar ? '<img src="' + item.avatar + '" class="no-zoom">' : ""}
         <div>
           <p class="name">${item.name}</p>
           <p class="desc">${item.desc}</p>
         </div>
-      </${item.link ? 'a' : 'span'}>
-    `
-  })
-  return listDOM
+      </${item.link ? "a" : "span"}>
+    `;
+  });
+  return listDOM;
 }
 
 // 将数据解析成DOM结构 - 图文卡片列表
 function getCardImgListDOM(dataList, row) {
-  let listDOM = ''
-  dataList.forEach(item => {
+  let listDOM = "";
+  dataList.forEach((item) => {
     listDOM += `
-      <div class="card-item ${row ? 'row-' + row : ''}" >
+      <div class="card-item ${row ? "row-" + row : ""}" >
         <a href="${item.link}" target="_blank">
           <div class="box-img">
               <img src="${item.img}" class="no-zoom">
           </div>
           <div class="box-info">
               <p class="name">${item.name}</p>
-              ${item.desc ? `<p class="desc">${item.desc}</p>` : ''}
+              ${item.desc ? `<p class="desc">${item.desc}</p>` : ""}
           </div>
 
           ${
             item.avatar || item.author
               ? `<div class="box-footer">
-              ${item.avatar ? `<img src="${item.avatar}" class="no-zoom">` : ''}
-              ${item.author ? `<span>${item.author}</span>` : ''}
+              ${item.avatar ? `<img src="${item.avatar}" class="no-zoom">` : ""}
+              ${item.author ? `<span>${item.author}</span>` : ""}
           </div>`
-              : ''
+              : ""
           }
         </a>
       </div>
-    `
-  })
-  return listDOM
+    `;
+  });
+  return listDOM;
 }

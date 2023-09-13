@@ -6,9 +6,9 @@ name: verify
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
       - name: install Node.js
         uses: actions/setup-node@v2.5.0
         with:
-          node-version: "14.18.1"
+          node-version: "16.16.0"
       - name: 测试依赖的安装
         run: npm install
       - name: 测试程序的打包

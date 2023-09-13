@@ -6,9 +6,9 @@ name: aiyoudiao
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,7 +27,7 @@ jobs:
       - name: install Node.js
         uses: actions/setup-node@v2.5.0
         with:
-          node-version: "14.18.1"
+          node-version: "16.16.1"
       - name: 安装依赖
         run: npm install
       - name: 开始打包
@@ -41,7 +41,7 @@ jobs:
           EXTERNAL_REPOSITORY: aiyoudiao/aiyoudiao.github.io
           PUBLISH_BRANCH: master
           PUBLISH_DIR: ./blog
-      
+
       # 同步代码到giteee上
       - name: 同步到gitee
         uses: wearerequired/git-mirror-action@master
