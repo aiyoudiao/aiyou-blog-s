@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-node@v2.5.0
         with:
           node-version: "16.16.0"
+      - name: 测试安装依赖pnpm
+        run: npm install -g pnpm
       - name: 测试依赖的安装
         run: npm install
       - name: 测试程序的打包
