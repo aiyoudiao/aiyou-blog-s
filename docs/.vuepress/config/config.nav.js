@@ -20,6 +20,7 @@ module.exports = [
       { text: "React", link: "/pages/18114480448/" },
       { text: "低代码", link: "/pages/25236260426/" },
       { text: "线性系统", link: "/pages/35345230523/" },
+      { text: "暂未分类", link: "/pages/08313561056/" },
     ],
   },
   {
