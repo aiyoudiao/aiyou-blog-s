@@ -45,7 +45,7 @@ module.exports = [
   {
     text: "历程",
     items: [
-      { text: "流年往事", link: "/pages/83857320232/" },
+      { text: "流年往事", link: "/pages/22305320332/" },
       { text: "经验片段", link: "/pages/93419130213/" },
       { text: "读书杂感", link: "/pages/99744220322/" },
     ],
